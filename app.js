@@ -4,12 +4,35 @@ var storage = require('node-persist');
 storage.initSync();
 
 
-/*storage.setItemSync('accounts', [{
-    username: 'Marcus',
-    balance: 0
-}]);
-*/
+//creating the user account
+function createAccount(account){
+    var accounts = storage.getItemSync('accounts');
 
-var accounts = storage.getItemSync('accounts');
+    if(typeof accounts === 'undefined'){
+        accounts = [];
+    }
 
-console.log(accounts);
+    accounts.push(account);
+    storage.setItemSync('accounts', accounts);
+
+    return account;
+}
+
+createAccount();
+
+//getting the user account
+function getAccount(accountName){
+    var accounts = storage.getItemSync('accounts');
+    var matchingAccounts;
+
+    accounts.forEach(function(account){
+        if(account.name === accountName){
+            matchingAccounts = account;
+        }
+    });
+
+    return matchingAccounts;
+}
+
+getAccount();
+
