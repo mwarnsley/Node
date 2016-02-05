@@ -18,8 +18,6 @@ function createAccount(account){
     return account;
 }
 
-createAccount();
-
 //getting the user account
 function getAccount(accountName){
     var accounts = storage.getItemSync('accounts');
@@ -34,5 +32,16 @@ function getAccount(accountName){
     return matchingAccounts;
 }
 
-getAccount();
+/*createAccount({
+    name: 'Facebook',
+    username: 'something@gmail.com',
+    password: 'Password123!'
+});
+*/
+
+var facebookAccount = getAccount('Facebook');
+
+console.log(facebookAccount);
+
+
 
