@@ -32,16 +32,6 @@ function getAccount(accountName){
     return matchingAccounts;
 }
 
-/*createAccount({
-    name: 'Facebook',
-    username: 'something@gmail.com',
-    password: 'Password123!'
-});
-*/
-
-var facebookAccount = getAccount('Facebook');
-
-console.log(facebookAccount);
 
 
 
